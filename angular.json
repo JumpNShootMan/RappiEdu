@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RappiEdu"
+    }
+  },
+  "defaultProject": "RappiEdu",
+  "cli": {
+    "analytics": false
+  }
 }
