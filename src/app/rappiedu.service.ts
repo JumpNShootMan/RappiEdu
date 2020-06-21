@@ -32,7 +32,7 @@ export class RappieduService {
     );
   }
 
-  getProfesorListId(id:number): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
+  getProfesorListId(id:number): Observable<any> { //Para llamar a la lista de productos en product-list.components.ts
     console.log('Llamando a REST: '+ this.urlBase + '/profesor/buscar/id');
     return this.http.get(this.urlBase+'/profesor/buscar/id/'+id).pipe( //llamado al REST de STS!
       map(response => response as Profesor)

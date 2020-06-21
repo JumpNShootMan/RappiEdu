@@ -19,8 +19,12 @@ export class ProfesorCreateComponent implements OnInit {
 
   save(){
     console.log(this.profesor);
-    this.rappieduService.createProfesor(this.profesor).subscribe(
-      data => this.router.navigate(['/prof-list']) //luego ir a list para ver si se ha creado el producto
+    this.rappieduService.createProfesor(this.profesor)
+    .subscribe(
+      data => this.router.navigate(['/prof-list']) 
+      //con navigate... 
+      //luego ir a list para ver si se ha creado
+      //el producto
     )
   }
 }
