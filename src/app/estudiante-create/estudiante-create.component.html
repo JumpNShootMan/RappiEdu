@@ -1,0 +1,60 @@
+<p></p>
+<div class="card border-dark mb-3">
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="nomEstudiante">Nombre</label>
+            <input type="text" class="form-control" id="nomEstudiante" [(ngModel)]="estudiante.nomEstudiante" name="nomEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="apellidoEstudiante">Apellido</label>
+            <input type="text" class="form-control" id="apellidoEstudiante" [(ngModel)]="estudiante.apellidoEstudiante" name="apellidoEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="text" class="form-control" id="edad" [(ngModel)]="estudiante.edad" name="edad">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <input type="text" class="form-control" id="genero" [(ngModel)]="estudiante.genero" name="genero">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="celularEstudiante">Celular</label>
+            <input type="text" class="form-control" id="celularEstudiante" [(ngModel)]="estudiante.celularEstudiante" name="celularEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="claveEstudiante">Contraseña</label>
+            <input type="text" class="form-control" id="claveEstudiante" [(ngModel)]="estudiante.claveEstudiante" name="claveEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="codigoEstudiante">Código</label>
+            <input type="text" class="form-control" id="codigoEstudiante" [(ngModel)]="estudiante.codigoEstudiante" name="codigoEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="dniEstudiante">DNI</label>
+            <input type="text" class="form-control" id="dniEstudiante" [(ngModel)]="estudiante.dniEstudiante" name="dniEstudiante">
+        </div>
+    </form>
+    <form (ngSubmit) = "save()">
+        <div class="form-group">
+            <label for="nomEstudiante">Dirección</label>
+            <input type="text" class="form-control" id="direccionEstudiante" [(ngModel)]="estudiante.direccionEstudiante" name="direccionEstudiante">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </div>
+    </form>
+</div>

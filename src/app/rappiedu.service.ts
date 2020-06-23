@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'; //definir a mano
 import {Especialidad} from './model/especialidad'; //definir a mano
 import {Profesor} from './model/profesor'; //definir a mano
+import {Estudiante} from './model/estudiante'; //definir a mano
 import {map} from 'rxjs/operators'; //definir a mano
 import { Observable } from 'rxjs'; //definir a mano
 
@@ -24,6 +25,9 @@ export class RappieduService {
   createProfesor(profesor: Object) : Observable<Object>{ //para crear en create-product
     return this.http.post(this.urlBase+'/profesor/registrarse',profesor, {headers:this.httpHeaders}); //enviando el producto al REST de STS
   }
+  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product
+    return this.http.post(this.urlBase+'/estudiante/registrar',estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+  }
 
   getProfesorList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
     console.log('Llamando a REST: '+ this.urlBase + '/profesor/mostrar');
@@ -43,6 +47,20 @@ export class RappieduService {
     console.log('Llamando a REST: '+ this.urlBase + '/especialidad/mostrar');
     return this.http.get(this.urlBase+'/especialidad/mostrar').pipe( //llamado al REST de STS!
       map(response => response as Especialidad[])
+    );
+  }
+
+  getEstudianteList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
+    console.log('Llamando a REST: '+ this.urlBase + '/estudiante/mostrar');
+    return this.http.get(this.urlBase+'/estudiante/mostrar').pipe( //llamado al REST de STS!
+      map(response => response as Estudiante[])
+    );
+  }
+
+  getEstudianteListId(id:number): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
+    console.log('Llamando a REST: '+ this.urlBase + '/estudiante/buscar/id');
+    return this.http.get(this.urlBase+'/estudiante/buscar/id/'+id).pipe( //llamado al REST de STS!
+      map(response => response as Estudiante)
     );
   }
 
