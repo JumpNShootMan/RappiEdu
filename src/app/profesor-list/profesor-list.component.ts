@@ -18,9 +18,9 @@ export class ProfesorListComponent implements OnInit {
     this.reloadData();
   }
 
-  procesarClick(){
-    this.rappieduService.getProfesorListId(this.fId).subscribe(profesores =>this.profesores = profesores);
-  }
+  // procesarClick(){
+  //   this.rappieduService.getProfesorListId(this.fId).subscribe(profesores =>this.profesores = profesores);
+  // }
 
   reloadData(){
     console.log("Reload!!!")

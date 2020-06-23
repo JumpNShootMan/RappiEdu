@@ -26,7 +26,7 @@ export class RappieduService {
   }
 
   getProfesorList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
-    console.log('Llamando a REST: '+ this.urlBase + '/profesor/mostrar');
+    console.log('Llamando a REST: '+ this.urlBase + '/profesores/mostrar');
     return this.http.get(this.urlBase+'/profesores/mostrar').pipe( //llamado al REST de STS!
       map(response => response as Profesor[])
     );
@@ -44,6 +44,13 @@ export class RappieduService {
     return this.http.get(this.urlBase+'/especialidad/mostrar').pipe( //llamado al REST de STS!
       map(response => response as Especialidad[])
     );
+  }
+
+  getEspecialidades() : Observable<any>{
+    console.log("Llamando a REST: " + this.urlBase+ "/especialidad/mostrar");
+    return this.http.get(this.urlBase+ "/especialidad/mostrar").pipe(
+       map(response => response as Especialidad[])
+    );   
   }
 
 }

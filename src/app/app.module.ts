@@ -10,6 +10,12 @@ import { ProfesorCreateComponent } from './profesor-create/profesor-create.compo
 //Para llamar a REST...
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { EstudianteCreateComponent } from './estudiante-create/estudiante-create.component';
+import { EstudianteListComponent } from './estudiante-list/estudiante-list.component';
+import { DistritoListComponent } from './distrito-list/distrito-list.component';
+import { DistritoCreateComponent } from './distrito-create/distrito-create.component';
+import { ServicioCreateComponent } from './servicio-create/servicio-create.component';
+import { ServicioListComponent } from './servicio-list/servicio-list.component';
 //
 
 @NgModule({
@@ -18,7 +24,13 @@ import {FormsModule} from '@angular/forms';
     EspecialidadCreateComponent,
     EspecialidadListComponent,
     ProfesorListComponent,
-    ProfesorCreateComponent
+    ProfesorCreateComponent,
+    EstudianteCreateComponent,
+    EstudianteListComponent,
+    DistritoListComponent,
+    DistritoCreateComponent,
+    ServicioCreateComponent,
+    ServicioListComponent
   ],
   imports: [
     BrowserModule,
