@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Servicio } from '../model/servicio';
+import { Profesor } from '../model/profesor';
+import { RappieduService } from '../rappiedu.service';
+import { Router } from '@angular/router';
+import { Especialidad } from '../model/especialidad';
 @Component({
   selector: 'app-servicio-create',
   templateUrl: './servicio-create.component.html',
@@ -7,9 +11,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicioCreateComponent implements OnInit {
 
-  constructor() { }
+  servicio: Servicio = new Servicio();
+  especialidades : Especialidad[];
+  profesores : Profesor[];
+  constructor(private rappieduService: RappieduService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.cargandoEspec();
+    this.cargandoProfs();
   }
 
+  cargandoEspec(){
+    console.log("Cargando especialidades")
+    this.rappieduService.getEspecialidades().subscribe(especialidades => this.especialidades = especialidades);
+    console.log(this.especialidades);
+  }
+
+  cargandoProfs(){
+    console.log("Cargando profesores")
+    this.rappieduService.getProfesorList().subscribe(profesores => this.profesores = profesores);
+    console.log(this.profesores);
+  }
+
+  save(){
+    console.log(this.servicio);
+    this.rappieduService.createServicio(this.servicio).subscribe(
+      data => this.router.navigate(['RappiEDU/Profesor/ser-list']) 
+      //con navigate... 
+      //luego ir a list para ver si se ha creado
+      //el profesor
+    )
+  }
+
+  compararTipoE(o1:Especialidad, o2:Especialidad) : boolean{
+    if (o1===undefined && o2===undefined){
+      return true;
+    }
+     return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.idEspecialidad === o2.idEspecialidad
+  }
+
+  compararTipoP(o1:Profesor, o2:Profesor) : boolean{
+    if (o1===undefined && o2===undefined){
+      return true;
+    }
+     return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.idProfesor === o2.idProfesor
+  }
+  
 }

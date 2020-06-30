@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { Estudiante } from '../model/estudiante';
-import { Observable } from 'rxjs';
-import { RappieduService } from '../rappiedu.service';
-=======
-import { Profesor } from '../model/profesor';
 import { Observable } from 'rxjs';
 import { RappieduService } from '../rappiedu.service';
 import { Estudiante } from '../model/estudiante';
->>>>>>> master
 
 @Component({
   selector: 'app-estudiante-list',

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-<<<<<<< HEAD
-=======
 // Componentes:
->>>>>>> master
 import {EspecialidadListComponent} from './especialidad-list/especialidad-list.component';
 import {EspecialidadCreateComponent} from './especialidad-create/especialidad-create.component'
 
@@ -17,24 +14,12 @@ import {EstudianteCreateComponent} from './estudiante-create/estudiante-create.c
 import {EstudianteListComponent} from './estudiante-list/estudiante-list.component';
 import {DistritoCreateComponent} from './distrito-create/distrito-create.component';
 import {DistritoListComponent} from './distrito-list/distrito-list.component';
-
-import {EstudianteCreateComponent} from './estudiante-create/estudiante-create.component';
-import {EstudianteListComponent} from './estudiante-list/estudiante-list.component';
+import { ServicioListComponent } from './servicio-list/servicio-list.component';
+import { ServicioCreateComponent } from './servicio-create/servicio-create.component';
+import { ContratoListComponent } from './contrato-list/contrato-list.component';
+import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
-  {path: '', redirectTo: 'prof', pathMatch:'full'},
-  
-  {path: 'prof-list', component: ProfesorListComponent},
-  {path: 'prof-new', component: ProfesorCreateComponent},
-
-  {path: 'esp-list', component: EspecialidadListComponent},
-  {path: 'esp-new', component: EspecialidadCreateComponent},
-
-  {path: 'estu-list', component: EstudianteListComponent},
-  {path: 'estu-new', component: EstudianteCreateComponent},
-
-=======
   {path: '', redirectTo: 'RappiEDU', pathMatch:'full'},
   {path: 'RappiEDU', component: HomepageComponent},
   {path: 'RappiEDU/Profesor', component: ProfesorComponent},
@@ -47,7 +32,10 @@ const routes: Routes = [
   {path: 'RappiEDU/Profesor/esp-new', component: EspecialidadCreateComponent},
   {path: 'RappiEDU/Estudiante/dis-list', component: DistritoListComponent},
   {path: 'RappiEDU/Estudiante/dis-new', component: DistritoCreateComponent},
->>>>>>> master
+  {path: 'RappiEDU/Profesor/ser-list', component: ServicioListComponent},
+  {path: 'RappiEDU/Profesor/ser-new', component: ServicioCreateComponent},
+  {path: 'RappiEDU/Estudiante/con-list', component: ContratoListComponent},
+  {path: 'RappiEDU/Estudiante/con-new', component: ContratoCreateComponent},
 ];
 
 @NgModule({

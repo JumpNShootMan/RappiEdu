@@ -1,12 +1,6 @@
 //Imports
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'; //definir a mano
-<<<<<<< HEAD
-import {Especialidad} from './model/especialidad'; //definir a mano
-import {Profesor} from './model/profesor'; //definir a mano
-import {Estudiante} from './model/estudiante'; //definir a mano
-=======
->>>>>>> master
 import {map} from 'rxjs/operators'; //definir a mano
 import { Observable } from 'rxjs'; //definir a mano
 
@@ -15,6 +9,8 @@ import {Especialidad} from './model/especialidad'; //definir a mano
 import {Profesor} from './model/profesor'; //definir a mano
 import {Estudiante} from './model/estudiante'; //definir a mano
 import {Distrito} from './model/distrito'; //definir a mano
+import {Servicio} from './model/servicio';
+import { Contrato } from './model/contrato';
 
 //Inicio Servicio
 @Injectable({
@@ -46,10 +42,7 @@ export class RappieduService {
 
   // ***** PROFESOR *****
   createProfesor(profesor: Object) : Observable<Object>{ //para crear en create-product
-    return this.http.post(this.urlBase+'/profesor/registrar',profesor, {headers:this.httpHeaders}); //enviando el producto al REST de STS
-  }
-  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product
-    return this.http.post(this.urlBase+'/estudiante/registrar/1',estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+    return this.http.post(this.urlBase+'/profesor/registrarse',profesor, {headers:this.httpHeaders}); //enviando el producto al REST de STS
   }
   getProfesorList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
     console.log('Llamando a REST: '+ this.urlBase + '/profesores/mostrar');
@@ -65,8 +58,9 @@ export class RappieduService {
   }
 
     // ***** ESTUDIANTE *****
-  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product
-    return this.http.post(this.urlBase+'/estudiante/registrar',estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product  
+    return this.http.post(this.urlBase+'/estudiante/registrar/1', estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+  
   }
   getEstudianteList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
     console.log('Llamando a REST: '+ this.urlBase + '/estudiantes/mostrar');
@@ -81,22 +75,6 @@ export class RappieduService {
     );
   }
 
-<<<<<<< HEAD
-  getEstudianteList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
-    console.log('Llamando a REST: '+ this.urlBase + '/estudiantes/mostrar');
-    return this.http.get(this.urlBase+'/estudiantes/mostrar').pipe( //llamado al REST de STS!
-      map(response => response as Estudiante[])
-    );
-  }
-
-  getEstudianteListId(id:number): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
-    console.log('Llamando a REST: '+ this.urlBase + '/estudiante/buscar/id');
-    return this.http.get(this.urlBase+'/estudiante/buscar/id/'+id).pipe( //llamado al REST de STS!
-      map(response => response as Estudiante)
-    );
-  }
-
-=======
   // ***** DISTRITO *****
   createDistrito(distrito: Object) : Observable<Object>{ //para crear en create-product
     return this.http.post(this.urlBase+'/distrito/registrar',distrito, {headers:this.httpHeaders}); //enviando el producto al REST de STS
@@ -113,5 +91,32 @@ export class RappieduService {
        map(response => response as Distrito[])
     );   
   }
->>>>>>> master
+
+    // ***** SERVICIO *****
+
+    createServicio(servicio: Object) : Observable<Object>{ //para crear en create-product
+      //Falta parametrizar Profesor y Especialidad
+      return this.http.post(this.urlBase+'/servicio/registrar/1/1',servicio, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+    }
+    getServicioList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
+      console.log('Llamando a REST: '+ this.urlBase + '/servicios/mostrar');
+      return this.http.get(this.urlBase+'/servicios/mostrar').pipe( //llamado al REST de STS!
+        map(response => response as Servicio[])
+      );
+    }
+
+    // ***** CONTRATO *****
+
+    createContrato(contrato: Object) : Observable<Object>{ //para crear en create-product
+      //Falta parametrizar Profesor y Especialidad
+      return this.http.post(this.urlBase+'/contrato/registrar/1',contrato, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+    }
+    getContratoList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
+      console.log('Llamando a REST: '+ this.urlBase + '/contratos/mostrar');
+      return this.http.get(this.urlBase+'/contratos/mostrar').pipe( //llamado al REST de STS!
+        map(response => response as Contrato[])
+      );
+    }
+  
+
 }

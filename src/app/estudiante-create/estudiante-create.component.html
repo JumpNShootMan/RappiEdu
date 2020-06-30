@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<p></p>
-<div class="card border-dark mb-3">
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +63,6 @@
     <div class="card-body text-dark">
       <h5 class="card-title">Agregar Nuevo Estudiante</h5>
   </div>
->>>>>>> master
     <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="nomEstudiante">Nombre</label>
@@ -121,15 +116,24 @@
             <label for="nomEstudiante">Dirección</label>
             <input type="text" class="form-control" id="direccionEstudiante" [(ngModel)]="estudiante.direccionEstudiante" name="direccionEstudiante">
         </div>
+
+        <div class="form-group">
+            <label for="distrito">Distrito</label>
+            <select [compareWith]="compararTipo" type="text" class="form-control" id="distrito"
+              [(ngModel)]="estudiante.distrito" name="distrito">
+              <option [ngValue]="undefined">
+                    --- Seleccione Distrito ----
+              </option>
+              <option *ngFor="let distrito of distritos" [ngValue]="distrito">
+                    {{distrito.nomDistrito}}
+              </option>
+            </select>
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success">Registrar</button>
         </div>
     </form>
-<<<<<<< HEAD
-</div>
-=======
 </div>
 
 </body>
 </html>
->>>>>>> master
