@@ -1,3 +1,5 @@
+import { Especialidad } from './especialidad';
+
 export class Profesor {
     idProfesor: number;
     nomProfesor: string;
@@ -7,4 +9,5 @@ export class Profesor {
     claveProfesor: string;
     celularProfesor: string;
     generoProfesor: string;
+    especialidad: Especialidad;
 }
