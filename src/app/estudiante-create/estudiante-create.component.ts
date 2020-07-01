@@ -4,6 +4,7 @@ import { RappieduService } from '../rappiedu.service';
 import { Router } from '@angular/router';
 import { Distrito } from '../model/distrito';
 
+
 @Component({
   selector: 'app-estudiante-create',
   templateUrl: './estudiante-create.component.html',
@@ -12,9 +13,9 @@ import { Distrito } from '../model/distrito';
 export class EstudianteCreateComponent implements OnInit {
 
   estudiante: Estudiante = new Estudiante();
+  //distrito : Distrito = new Distrito();
+  distritos: Distrito[] = [];
 
-  distritos: Distrito;
-  distritoId: number;
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 
@@ -24,19 +25,34 @@ export class EstudianteCreateComponent implements OnInit {
 
   cargando(){
     console.log("Cargando distritos")
-    this.rappieduService.getDistritos().subscribe(distritos => this.distritos = distritos);
-
+    this.rappieduService.getDistritos().subscribe(distritos=> this.distritos = distritos);
+   /* 
+    for (let index = 0; index < distritosAR.length; index++) {
+      
+      let district = new Distrito();
+      district.idDistrito = distritosAR[index].idDistrito;
+      district.nomDistrito = distritosAR[index].nomDistrito;
+      district.nomProvincia = distritosAR[index].nomProvincia;
+      console.log(district);
+      this.distritos.push(district);
+    }*/
+    //});
     console.log(this.distritos);
   }
 
   save(){
     console.log(this.estudiante);
-  
+
+    //let district = new Distrito();
+    //district =  this.distrito;
+    
     this.rappieduService.createEstudiante(this.estudiante).subscribe(
       data => this.router.navigate(['RappiEDU/Estudiante/estu-list']) //luego ir a list para ver si se ha creado el producto
     )
   }
-
+//lmfao(){
+//  console.log(this.distrito.idDistrito);
+//}
   compararTipo(o1:Distrito, o2:Distrito) : boolean{
     if (o1===undefined && o2===undefined){
       return true;

@@ -11,6 +11,7 @@ import {Estudiante} from './model/estudiante'; //definir a mano
 import {Distrito} from './model/distrito'; //definir a mano
 import {Servicio} from './model/servicio';
 import { Contrato } from './model/contrato';
+import { DeclareVarStmt, identifierModuleUrl } from '@angular/compiler';
 
 //Inicio Servicio
 @Injectable({
@@ -58,8 +59,9 @@ export class RappieduService {
   }
 
     // ***** ESTUDIANTE *****
-  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product  
-    return this.http.post(this.urlBase+'/estudiante/registrar/1', estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+  createEstudiante(estudiante: Object) : Observable<Object>{ //para crear en create-product 
+    return this.http.post(this.urlBase+'/estudiante/registrar', estudiante, {headers:this.httpHeaders});
+    //return this.http.post(this.urlBase+'/estudiante/registrar/1', estudiante, {headers:this.httpHeaders}); //enviando el producto al REST de STS
   
   }
   getEstudianteList(): Observable<any>{ //Para llamar a la lista de productos en product-list.components.ts
