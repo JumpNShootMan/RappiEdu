@@ -20,7 +20,7 @@ export class DistritoCreateComponent implements OnInit {
   save() {
     console.log(this.distrito);
     this.rappieduService.createDistrito(this.distrito).subscribe(
-      data=> this.router.navigate(['/dis-list']) //luego ir a list para ver si se ha creado el producto
+      data=> this.router.navigate(['RappiEDU/Estudiante/dis-list']) //luego ir a list para ver si se ha creado el producto
     )
   }
 
