@@ -8,6 +8,6 @@ export class Servicio {
     costoServicio: number;
     dia: string;
     hora: string;
+    nomEspecialidad: string;
     profesor: Profesor;
-    especialidad: Especialidad;
 }

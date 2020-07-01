@@ -12,7 +12,7 @@ import { Especialidad } from '../model/especialidad';
 export class ProfesorCreateComponent implements OnInit {
 
   profesor: Profesor = new Profesor();
-  especialidades : Especialidad[];
+  especialidades : Especialidad[] = [];
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 

@@ -20,7 +20,7 @@ export class EspecialidadCreateComponent implements OnInit {
   save(){
     console.log(this.especialidad);
     this.rappieduService.createEspecialidad(this.especialidad).subscribe(
-      data => this.router.navigate(['/esp-list']) //luego ir a list para ver si se ha creado el producto
+      data => this.router.navigate(['RappiEDU/Profesor/esp-list']) //luego ir a list para ver si se ha creado el producto
     )
   }
 }

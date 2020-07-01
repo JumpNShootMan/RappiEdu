@@ -3,7 +3,7 @@ import { Contrato } from '../model/contrato';
 import { RappieduService } from '../rappiedu.service';
 import { Router } from '@angular/router';
 import { Servicio } from '../model/servicio';
-
+import { Estudiante } from '../model/estudiante';
 
 @Component({
   selector: 'app-contrato-create',
@@ -13,18 +13,26 @@ import { Servicio } from '../model/servicio';
 export class ContratoCreateComponent implements OnInit {
 
   contrato: Contrato = new Contrato();
-  servicios : Servicio[];
+  servicios : Servicio[] = [];
+  estudiantes: Estudiante[] = [];
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.cargandoServ();
+    this.cargandoEstu();
   }
 
   cargandoServ(){
     console.log("Cargando servicios")
     this.rappieduService.getServicioList().subscribe(servicios => this.servicios = servicios);
     console.log(this.servicios);
+  }
+
+  cargandoEstu(){
+    console.log("Cargando estudiantes")
+    this.rappieduService.getEstudianteList().subscribe(estudiantes => this.estudiantes = estudiantes);
+    console.log(this.estudiantes);
   }
 
   save(){
@@ -44,5 +52,11 @@ export class ContratoCreateComponent implements OnInit {
      return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.idServicio === o2.idServicio
   }
 
+  compararTipoE(o1:Estudiante, o2:Estudiante) : boolean{
+    if (o1===undefined && o2===undefined){
+      return true;
+    }
+     return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.idEstudiante === o2.idEstudiante
+  }
 
 }

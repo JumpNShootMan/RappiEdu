@@ -90,6 +90,18 @@
           </select>
       </div>
 
+      <div class="form-group">
+        <label for="estudiante">Estudiante</label>
+        <select [compareWith]="compararTipoE" type="text" class="form-control" id="estudiante"
+          [(ngModel)]="contrato.estudiante" name="estudiante">
+          <option [ngValue]="undefined">
+                --- Seleccione Estudiante ----
+          </option>
+          <option *ngFor="let estudiante of estudiantes" [ngValue]="estudiante">
+                {{estudiante.nomEstudiante}}
+          </option>
+        </select>
+    </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-success">Registrar</button>

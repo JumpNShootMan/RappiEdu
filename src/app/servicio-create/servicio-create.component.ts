@@ -3,7 +3,7 @@ import { Servicio } from '../model/servicio';
 import { Profesor } from '../model/profesor';
 import { RappieduService } from '../rappiedu.service';
 import { Router } from '@angular/router';
-import { Especialidad } from '../model/especialidad';
+
 @Component({
   selector: 'app-servicio-create',
   templateUrl: './servicio-create.component.html',
@@ -12,20 +12,12 @@ import { Especialidad } from '../model/especialidad';
 export class ServicioCreateComponent implements OnInit {
 
   servicio: Servicio = new Servicio();
-  especialidades : Especialidad[];
-  profesores : Profesor[];
+  profesores : Profesor[] = [];
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.cargandoEspec();
     this.cargandoProfs();
-  }
-
-  cargandoEspec(){
-    console.log("Cargando especialidades")
-    this.rappieduService.getEspecialidades().subscribe(especialidades => this.especialidades = especialidades);
-    console.log(this.especialidades);
   }
 
   cargandoProfs(){
@@ -42,13 +34,6 @@ export class ServicioCreateComponent implements OnInit {
       //luego ir a list para ver si se ha creado
       //el profesor
     )
-  }
-
-  compararTipoE(o1:Especialidad, o2:Especialidad) : boolean{
-    if (o1===undefined && o2===undefined){
-      return true;
-    }
-     return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.idEspecialidad === o2.idEspecialidad
   }
 
   compararTipoP(o1:Profesor, o2:Profesor) : boolean{
