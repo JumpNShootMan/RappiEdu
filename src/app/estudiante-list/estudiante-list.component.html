@@ -48,11 +48,11 @@
   <div class="container " id="top">
     <div class="row">
       <div class="col-md-10 col-sm-12 col-xs-12">
-        <h5 class="blanco"> <b> <u> PROFESORES </u> </b> </h5>
+        <h5 class="blanco"> <b> <u> ESTUDIANTES </u> </b> </h5>
       </div>
       <div class="col-md-2 col-sm-12 col-xs-12 text-left">
         <ul class=" list-group list-group-horizontal">
-            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Profesor"> VOLVER </a></li>
+            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Estudiante"> VOLVER </a></li>
           </ul>
       </div>
     </div>
@@ -61,10 +61,10 @@
 
 <div class="card border-dark mb-3">
     <div class="card-body text-dark">
-        <h5 class="card-title">Listado de Profesores</h5>
+        <h5 class="card-title">Listado de Estudiantes</h5>
     </div>
     <!-- <div>
-        <label for="fId">ID del Profesor</label>
+        <label for="fId">ID del Estudiante</label>
         <input type="text" for="fId" class="form-control" id="fId" name="fId"
                 [(ngModel)]="fId">
         <button (click) = "procesarClick()">Enviar</button>
@@ -75,29 +75,36 @@
                 <th>id</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>DNI</th>
-                <th>Debe este Mes</th>
-                <th>Contraseña</th>
-                <th>Celular</th>
+                <th>Nro. Reservas</th>
+                <th>Edad</th>
                 <th>Genero</th>
+                <th>Celular</th>
+                <th>Clave</th>
+                <th>Codigo</th>
+                <th>DNI</th>
+                <th>Direccionr</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of profesores">
-                <th>{{p.idProfesor}}</th>
-                <th>{{p.nomProfesor}}</th>
-                <th>{{p.apellidoProfesor}}</th>
-                <th>{{p.dniProfesor}}</th>
-                <th>{{p.pagoMes}}</th>
-                <th>{{p.claveProfesor}}</th>
-                <th>{{p.celularProfesor}}</th>
-                <th>{{p.generoProfesor}}</th>
+            <tr *ngFor="let p of estudiantes">
+                <th>{{p.idEstudiante}}</th>
+                <th>{{p.nomEstudiante}}</th>
+                <th>{{p.apellidoEstudiante}}</th>
+                <th>{{p.nroReservas}}</th>
+                <th>{{p.edad}}</th>
+                <th>{{p.genero}}</th>
+                <th>{{p.celularEstudiante}}</th>
+                <th>{{p.claveEstudiante}}</th>
+                <th>{{p.codigoEstudiante}}</th>
+                <th>{{p.dniEstudiante}}</th>
+                <th>{{p.direccionEstudiante}}</th>
             </tr>
         </tbody>
 
     </table>
 
 </div>
+
 
 </body>
 </html>
