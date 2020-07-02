@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Servicio } from '../model/servicio';
+import { Contrato } from '../model/contrato';
 import { Observable } from 'rxjs';
 import { RappieduService } from '../rappiedu.service';
 
 @Component({
-  selector: 'app-servicio-list',
-  templateUrl: './servicio-list.component.html',
-  styleUrls: ['./servicio-list.component.css']
+  selector: 'app-contrato-list',
+  templateUrl: './contrato-list.component.html',
+  styleUrls: ['./contrato-list.component.css']
 })
-export class ServicioListComponent implements OnInit {
+export class ContratoListComponent implements OnInit {
 
-  servicios: Observable<Servicio>
+  contratos: Observable<Contrato>
   fId: number;
   constructor(private rappieduService: RappieduService) { }
 
@@ -24,6 +24,6 @@ export class ServicioListComponent implements OnInit {
 
   reloadData(){
     console.log("Reload!!!")
-    this.rappieduService.getServicioList().subscribe(servicios => this.servicios = servicios);
+    this.rappieduService.getContratoList().subscribe(contratos => this.contratos = contratos);
   }
 }

@@ -48,11 +48,11 @@
   <div class="container " id="top">
     <div class="row">
       <div class="col-md-10 col-sm-12 col-xs-12">
-        <h5 class="blanco"> <b> <u> SERVICIOS </u> </b> </h5>
+        <h5 class="blanco"> <b> <u> CONTRATOS </u> </b> </h5>
       </div>
       <div class="col-md-2 col-sm-12 col-xs-12 text-left">
         <ul class=" list-group list-group-horizontal">
-            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Profesor"> CANCELAR </a></li>
+            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Estudiante"> CANCELAR </a></li>
           </ul>
       </div>
     </div>
@@ -61,41 +61,47 @@
 
 <div class="card border-dark mb-3">
     <div class="card-body text-dark">
-        <h5 class="card-title">Crear Nuevo Servicio</h5>
+        <h5 class="card-title">Crear Nuevo Contrato</h5>
     </div>
     <form (ngSubmit) = "save()">
         <div class="form-group">
-            <label for="nomServicio">Nombre</label>
-            <input type="text" class="form-control" id="nomServicio" [(ngModel)]="servicio.nomServicio" name="nomServicio">
+            <label for="year">Año</label>
+            <input type="text" class="form-control" id="year" [(ngModel)]="contrato.year" name="year">
         </div>
         <div class="form-group">
-            <label for="descripcionServicio">Descripción</label>
-            <input type="text" class="form-control" id="descripcionServicio" [(ngModel)]="servicio.descripcionServicio" name="descripcionServicio">
-        </div>  
-        <div class="form-group">
-            <label for="costoServicio">Costo</label>
-            <input type="text" class="form-control" id="costoServicio" [(ngModel)]="servicio.costoServicio" name="costoServicio">
+            <label for="mes">Mes</label>
+            <input type="text" class="form-control" id="mes" [(ngModel)]="contrato.mes" name="mes">
         </div>  
         <div class="form-group">
             <label for="dia">Día</label>
-            <input type="text" class="form-control" id="dia" [(ngModel)]="servicio.dia" name="dia">
+            <input type="text" class="form-control" id="dia" [(ngModel)]="contrato.dia" name="dia">
         </div>  
+
         <div class="form-group">
-            <label for="hora">Hora</label>
-            <input type="text" class="form-control" id="hora" [(ngModel)]="servicio.hora" name="hora">
-        </div>  
-        <div class="form-group">
-            <label for="profesor">Profesor</label>
-            <select [compareWith]="compararTipoP" type="text" class="form-control" id="profesor"
-              [(ngModel)]="servicio.profesor" name="profesor">
-              <option [ngValue]="undefined">
-                    --- Seleccione Profesor ----
-              </option>
-              <option *ngFor="let profesor of profesores" [ngValue]="profesor">
-                    {{profesor.nomProfesor}}
-              </option>
-            </select>
-        </div>
+          <label for="servicio">Servicio</label>
+          <select [compareWith]="compararTipoS" type="text" class="form-control" id="servicio"
+            [(ngModel)]="contrato.servicio" name="servicio">
+            <option [ngValue]="undefined">
+                  --- Seleccione Servicio ----
+            </option>
+            <option *ngFor="let servicio of servicios" [ngValue]="servicio">
+                  {{servicio.nomServicio}}
+            </option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="estudiante">Estudiante</label>
+        <select [compareWith]="compararTipoE" type="text" class="form-control" id="estudiante"
+          [(ngModel)]="contrato.estudiante" name="estudiante">
+          <option [ngValue]="undefined">
+                --- Seleccione Estudiante ----
+          </option>
+          <option *ngFor="let estudiante of estudiantes" [ngValue]="estudiante">
+                {{estudiante.nomEstudiante}}
+          </option>
+        </select>
+    </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-success">Registrar</button>
@@ -105,3 +111,4 @@
 
 </body>
 </html>
+

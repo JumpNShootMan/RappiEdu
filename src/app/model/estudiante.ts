@@ -1,3 +1,5 @@
+import { Distrito } from './distrito';
+
 export class Estudiante {
     idEstudiante: number;
     nomEstudiante: String;
@@ -10,4 +12,5 @@ export class Estudiante {
     codigoEstudiante: String;
     dniEstudiante: String;
     direccionEstudiante: String;
+    distrito: Distrito;
 }

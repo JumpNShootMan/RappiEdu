@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Profesor } from '../model/profesor';
 import { Observable } from 'rxjs';
 import { RappieduService } from '../rappiedu.service';
 import { Estudiante } from '../model/estudiante';

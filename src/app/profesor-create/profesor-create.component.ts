@@ -12,7 +12,7 @@ import { Especialidad } from '../model/especialidad';
 export class ProfesorCreateComponent implements OnInit {
 
   profesor: Profesor = new Profesor();
-  especialidades : Especialidad[];
+  especialidades : Especialidad[] = [];
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 
@@ -29,7 +29,7 @@ export class ProfesorCreateComponent implements OnInit {
   save(){
     console.log(this.profesor);
     this.rappieduService.createProfesor(this.profesor).subscribe(
-      data => this.router.navigate(['/prof-list']) 
+      data => this.router.navigate(['RappiEDU/Profesor/prof-list']) 
       //con navigate... 
       //luego ir a list para ver si se ha creado
       //el profesor
