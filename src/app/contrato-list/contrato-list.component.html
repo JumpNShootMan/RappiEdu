@@ -48,11 +48,11 @@
   <div class="container " id="top">
     <div class="row">
       <div class="col-md-10 col-sm-12 col-xs-12">
-        <h5 class="blanco"> <b> <u> SERVICIOS </u> </b> </h5>
+        <h5 class="blanco"> <b> <u> RESERVAS </u> </b> </h5>
       </div>
       <div class="col-md-2 col-sm-12 col-xs-12 text-left">
         <ul class=" list-group list-group-horizontal">
-            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Profesor"> VOLVER </a></li>
+            <li><a class="blanco" href="http://localhost:4200/RappiEDU/Estudiante"> VOLVER </a></li>
           </ul>
       </div>
     </div>
@@ -61,7 +61,7 @@
 
 <div class="card border-dark mb-3">
     <div class="card-body text-dark">
-        <h5 class="card-title">Listado de Servicios</h5>
+        <h5 class="card-title">Listado de Reservas</h5>
     </div>
     <!-- <div>
         <label for="fId">ID del Profesor</label>
@@ -74,22 +74,38 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre del servicio</th>
-                <th>Descripción</th>
-                <th>Costo</th>
+                <th>Nombre del estudiante</th>
+                <th>Apellido del estudiante</th>
+                <th>Dirección del estudiante</th>
+                <th>Nombre del profesor</th>
+                <th>Apellido del profesor</th>
+                <th>Año</th>
+                <th>Mes</th>
                 <th>Día</th>
-                <th>Hora</th>
-                <th>Profesor</th>
+                <th>Confirmado</th>
+                <th>Calificación</th>
+                <th>Costo</th>
+                <th>Nombre de la especialidad</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of servicios">
-                <th>{{p.idServicio}}</th>
-                <th>{{p.nomServicio}}</th>
-                <th>{{p.descripcionServicio}}</th>
-                <th>{{p.costoServicio}}</th>
+            <tr *ngFor="let p of contratos">
+                <th>{{p.idContrato}}</th>
+                <th>{{p.nombreServicio}}</th>
+                <th>{{p.nomEstudiante}}</th>
+                <th>{{p.apellidoEstudiante}}</th>
+                <th>{{p.direccionEstudinate}}</th>
+                <th>{{p.nomProfesor}}</th>
+                <th>{{p.apellidoProfesor}}</th>
+                <th>{{p.year}}</th>
+                <th>{{p.mes}}</th>
                 <th>{{p.dia}}</th>
-                <th>{{p.hora}}</th>
-                <th>{{p.profesor}}</th>
+                <th>{{p.confirmado}}</th>
+                <th>{{p.calificacion}}</th>
+                <th>{{p.costo}}</th>
+                <th>{{p.nombreEspecialidad}}</th>
+
             </tr>
         </tbody>
 

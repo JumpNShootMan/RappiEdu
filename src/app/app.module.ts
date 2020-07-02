@@ -21,6 +21,8 @@ import { EstudianteCreateComponent } from './estudiante-create/estudiante-create
 import { EstudianteListComponent } from './estudiante-list/estudiante-list.component';
 import { DistritoListComponent } from './distrito-list/distrito-list.component';
 import { DistritoCreateComponent } from './distrito-create/distrito-create.component';
+import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
+import { ContratoListComponent } from './contrato-list/contrato-list.component';
 
 
 @NgModule({
@@ -38,7 +40,11 @@ import { DistritoCreateComponent } from './distrito-create/distrito-create.compo
     EstudianteCreateComponent,
     EstudianteListComponent,
     DistritoListComponent,
-    DistritoCreateComponent
+    DistritoCreateComponent,
+    ServicioCreateComponent,
+    ServicioListComponent,
+    ContratoCreateComponent,
+    ContratoListComponent
   ],
   imports: [
     BrowserModule,
