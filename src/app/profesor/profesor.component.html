@@ -76,9 +76,11 @@
             Profesores
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="prof-new">Profesor Nuevo</a>
-            <a class="dropdown-item" routerLink="prof-list">Listado de Profesores</a>
+            <td *ngIf="authService.hasRole('ROLE_USER')">
+              <a class="dropdown-item" routerLink="prof-new">Profesor Nuevo</a>
+            </td>
             
+            <a class="dropdown-item" routerLink="prof-list">Listado de Profesores</a>          
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -86,7 +88,10 @@
               Especialidades
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="esp-new">Especialidad Nueva</a>
+              <td *ngIf="authService.hasRole('ROLE_USER')">
+                <a class="dropdown-item" routerLink="esp-new">Especialidad Nueva</a>
+              </td>
+              
               <a class="dropdown-item" routerLink="esp-list">Listado de Especialidades</a>
             </div>
         </li>
@@ -95,7 +100,10 @@
             Servicios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="ser-new">Agregar Servicio</a>
+            <td *ngIf="authService.hasRole('ROLE_USER')">
+              <a class="dropdown-item" routerLink="ser-new">Agregar Servicio</a>
+            </td>
+            
             <a class="dropdown-item" routerLink="ser-list">Listado de Servicios</a>
           </div>
       </li>

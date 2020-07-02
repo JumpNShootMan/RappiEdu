@@ -4,7 +4,6 @@ import { Profesor } from '../model/profesor';
 import { RappieduService } from '../rappiedu.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-servicio-create',
   templateUrl: './servicio-create.component.html',
@@ -14,7 +13,6 @@ export class ServicioCreateComponent implements OnInit {
 
   servicio: Servicio = new Servicio();
   profesores : Profesor[] = [];
-  profesor: Profesor;
   constructor(private rappieduService: RappieduService,
               private router: Router) { }
 
@@ -28,15 +26,13 @@ export class ServicioCreateComponent implements OnInit {
     console.log(this.profesores);
   }
 
-  setNomEsp(){
-    this.servicio.nomEspecialidad = this.servicio.profesor.especialidad.nomEspecialidad;
-  }
-
   save(){
     console.log(this.servicio);
     this.rappieduService.createServicio(this.servicio).subscribe(
-      data => this.router.navigate(['RappiEDU/Profesor/ser-list'])
-
+      data => this.router.navigate(['RappiEDU/Profesor/ser-list']) 
+      //con navigate... 
+      //luego ir a list para ver si se ha creado
+      //el profesor
     )
   }
 

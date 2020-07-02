@@ -24,6 +24,11 @@ import { DistritoCreateComponent } from './distrito-create/distrito-create.compo
 import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
 import { ContratoListComponent } from './contrato-list/contrato-list.component';
 
+// Log In:
+import { LoginComponent } from './usuarios/login.component';
+import { AuthGuard } from './usuarios/guards/auth.guard';
+import { RoleGuard } from './usuarios/guards/role.guard';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { ContratoListComponent } from './contrato-list/contrato-list.component';
     ServicioCreateComponent,
     ServicioListComponent,
     ContratoCreateComponent,
-    ContratoListComponent
+    ContratoListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
