@@ -18,6 +18,7 @@ import { ServicioListComponent } from './servicio-list/servicio-list.component';
 import { ServicioCreateComponent } from './servicio-create/servicio-create.component';
 import { ContratoListComponent } from './contrato-list/contrato-list.component';
 import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
+import { ConfirmarComponent } from './confirmar/confirmar.component';
 
 // Log In:
 import { LoginComponent } from './usuarios/login.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'RappiEDU/Estudiante/con-list', component: ContratoListComponent},
   {path: 'RappiEDU/Estudiante/con-new', component: ContratoCreateComponent},
   {path: 'RappiEDU/login', component: LoginComponent },
+  {path: 'RappiEDU/Profesor/confirmar', component: ConfirmarComponent },
 ];
 
 @NgModule({
