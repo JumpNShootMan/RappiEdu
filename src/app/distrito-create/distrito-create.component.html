@@ -63,19 +63,32 @@
     <div class="card-body text-dark">
         <h5 class="card-title">Agregar Nuevo Distrito</h5>
     </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for=" nomDistrito">Distrito</label>
-            <input type="text" class="form-control" id=" nomDistrito" [(ngModel)]="distrito.nomDistrito" name=" nomDistrito">
+            <input type="text" class="form-control" id=" nomDistrito" [(ngModel)]="distrito.nomDistrito" name=" nomDistrito" required #nomDistrito="ngModel">
+            
+            <div class="alert alert-danger"
+            *ngIf="nomDistrito.invalid && (nomDistrito.dirty || nomDistrito.touched)">
+            <div *ngIf="nomDistrito.errors.required">
+                  Nombre de distrito es requerido.
+            </div>
+          </div>
+          
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
+      
         <div class="form-group">
             <label for="nomProvincia">Provincia</label>
-            <input type="text" class="form-control" id="nomProvincia" [(ngModel)]="distrito.nomProvincia" name="nomProvincia">
-        </div>
+            <input type="text" class="form-control" id="nomProvincia" [(ngModel)]="distrito.nomProvincia" name="nomProvincia" required #nomProvincia="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="nomProvincia.invalid && (nomProvincia.dirty || nomProvincia.touched)">
+            <div *ngIf="nomProvincia.errors.required">
+                  Nombre de provincia es requerido.
+            </div>
+          </div>
+      </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid" >Registrar</button>
         </div>
 
     </form>

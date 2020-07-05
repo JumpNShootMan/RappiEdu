@@ -18,6 +18,12 @@ import { ServicioListComponent } from './servicio-list/servicio-list.component';
 import { ServicioCreateComponent } from './servicio-create/servicio-create.component';
 import { ContratoListComponent } from './contrato-list/contrato-list.component';
 import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
+import { ConfirmarComponent } from './confirmar/confirmar.component';
+
+// Log In:
+import { LoginComponent } from './usuarios/login.component';
+import { AuthGuard } from './usuarios/guards/auth.guard';
+import { RoleGuard } from './usuarios/guards/role.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'RappiEDU', pathMatch:'full'},
@@ -29,13 +35,15 @@ const routes: Routes = [
   {path: 'RappiEDU/Estudiante/estu-list', component: EstudianteListComponent},
   {path: 'RappiEDU/Estudiante/estu-new', component: EstudianteCreateComponent},
   {path: 'RappiEDU/Profesor/esp-list', component: EspecialidadListComponent},
-  {path: 'RappiEDU/Profesor/esp-new', component: EspecialidadCreateComponent},
+  {path: 'RappiEDU/Profesor/esp-new', component: EspecialidadCreateComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   {path: 'RappiEDU/Estudiante/dis-list', component: DistritoListComponent},
-  {path: 'RappiEDU/Estudiante/dis-new', component: DistritoCreateComponent},
+  {path: 'RappiEDU/Estudiante/dis-new', component: DistritoCreateComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   {path: 'RappiEDU/Profesor/ser-list', component: ServicioListComponent},
   {path: 'RappiEDU/Profesor/ser-new', component: ServicioCreateComponent},
   {path: 'RappiEDU/Estudiante/con-list', component: ContratoListComponent},
   {path: 'RappiEDU/Estudiante/con-new', component: ContratoCreateComponent},
+  {path: 'RappiEDU/login', component: LoginComponent },
+  {path: 'RappiEDU/Profesor/confirmar', component: ConfirmarComponent },
 ];
 
 @NgModule({

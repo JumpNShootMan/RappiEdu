@@ -76,7 +76,10 @@
             Estudiantes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="estu-new">Estudiante Nuevo</a>
+            <td *ngIf="authService.hasRole('ROLE_USER')">
+              <a class="dropdown-item" routerLink="estu-new">Estudiante Nuevo</a>
+            </td>
+
             <a class="dropdown-item" routerLink="estu-list">Listado de Estudiantes</a>
             
           </div>
@@ -86,7 +89,10 @@
               Distrito
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="dis-new">Distrito Nuevo</a>
+              <td *ngIf="authService.hasRole('ROLE_USER')">
+                <a class="dropdown-item" routerLink="dis-new">Distrito Nuevo</a>
+              </td>
+
               <a class="dropdown-item" routerLink="dis-list">Listado de Distritos</a>
             </div>
         </li>
@@ -95,24 +101,29 @@
             Reservas
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="con-new">Crear Reserva</a>
+            <td *ngIf="authService.hasRole('ROLE_USER')">
+              <a class="dropdown-item" routerLink="con-new">Crear Reserva</a>
+            </td>
+
             <a class="dropdown-item" routerLink="con-list">Listado de Reservas</a>
           </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Extras
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="esp-new">Agregar Distrito</a>
-        </div>
-      </li>
      <li class="nav-item ">
-        <a class="nav-link " routerLink="esp-new" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
-          Ver Tutorias Reservadas
-        </a>
+        <td *ngIf="authService.hasRole('ROLE_USER')">
+          <a class="nav-link " href="http://localhost:4200/RappiEDU/Profesor/ser-list" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+            Lista de Servicios
+          </a>
+        </td>
       </li>
-      </ul>
+      <li class="nav-item ">
+        <td *ngIf="authService.hasRole('ROLE_USER')">
+          <a class="nav-link " href="http://localhost:4200/RappiEDU/Profesor/confirmar" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+            Ver Tutorías
+          </a>
+        </td>
+
+      </li>
+      </ul> 
     </div>
   </nav>
 

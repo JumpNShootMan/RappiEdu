@@ -63,64 +63,119 @@
     <div class="card-body text-dark">
       <h5 class="card-title">Agregar Nuevo Estudiante</h5>
   </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for="nomEstudiante">Nombre</label>
-            <input type="text" class="form-control" id="nomEstudiante" [(ngModel)]="estudiante.nomEstudiante" name="nomEstudiante">
+            <input type="text" class="form-control" id="nomEstudiante" [(ngModel)]="estudiante.nomEstudiante" name="nomEstudiante" required #nomEstudiante="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="nomEstudiante.invalid && (nomEstudiante.dirty || nomEstudiante.touched)">
+            <div *ngIf="nomEstudiante.errors.required">
+                  Nombre de estudiante es requerido.
+            </div>
+          </div>
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="apellidoEstudiante">Apellido</label>
-            <input type="text" class="form-control" id="apellidoEstudiante" [(ngModel)]="estudiante.apellidoEstudiante" name="apellidoEstudiante">
+            <input type="text" class="form-control" id="apellidoEstudiante" [(ngModel)]="estudiante.apellidoEstudiante" name="apellidoEstudiante" required #apellidoEstudiante="ngModel">
+            
+            <div class="alert alert-danger"
+            *ngIf="apellidoEstudiante.invalid && (apellidoEstudiante.dirty || apellidoEstudiante.touched)">
+            <div *ngIf="apellidoEstudiante.errors.required">
+                  Apellido de estudiante es requerido.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="edad">Edad</label>
-            <input type="text" class="form-control" id="edad" [(ngModel)]="estudiante.edad" name="edad">
+            <input type="text" class="form-control" id="edad" [(ngModel)]="estudiante.edad" name="edad" required #edad="ngModel">
+
+            <div class="alert alert-danger"
+            *ngIf="edad.invalid && (edad.dirty || edad.touched)">
+            <div *ngIf="edad.errors.required">
+                  Edad de estudiante es requerida.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="genero">Género</label>
-            <input type="text" class="form-control" id="genero" [(ngModel)]="estudiante.genero" name="genero">
+            <input type="text" class="form-control" id="genero" [(ngModel)]="estudiante.genero" name="genero" required #genero="ngModel">
+
+            <div class="alert alert-danger"
+            *ngIf="genero.invalid && (genero.dirty || genero.touched)">
+            <div *ngIf="genero.errors.required">
+                  Género de estudiante es requerido.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="celularEstudiante">Celular</label>
-            <input type="text" class="form-control" id="celularEstudiante" [(ngModel)]="estudiante.celularEstudiante" name="celularEstudiante">
+            <input type="text" class="form-control" id="celularEstudiante" [(ngModel)]="estudiante.celularEstudiante" name="celularEstudiante" required #celularEstudiante="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="celularEstudiante.invalid && (celularEstudiante.dirty || celularEstudiante.touched)">
+            <div *ngIf="celularEstudiante.errors.required">
+                  Celular de estudiante es requerido.
+            </div>
+          </div>
+
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="claveEstudiante">Contraseña</label>
-            <input type="text" class="form-control" id="claveEstudiante" [(ngModel)]="estudiante.claveEstudiante" name="claveEstudiante">
+            <input type="text" class="form-control" id="claveEstudiante" [(ngModel)]="estudiante.claveEstudiante" name="claveEstudiante" required #claveEstudiante="ngModel">
+       
+            <div class="alert alert-danger"
+            *ngIf="claveEstudiante.invalid && (claveEstudiante.dirty || claveEstudiante.touched)">
+            <div *ngIf="claveEstudiante.errors.required">
+                  Clave de estudiante es requerida.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="codigoEstudiante">Código</label>
-            <input type="text" class="form-control" id="codigoEstudiante" [(ngModel)]="estudiante.codigoEstudiante" name="codigoEstudiante">
+            <input type="text" class="form-control" id="codigoEstudiante" [(ngModel)]="estudiante.codigoEstudiante" name="codigoEstudiante" required #codigoEstudiante="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="codigoEstudiante.invalid && (codigoEstudiante.dirty || codigoEstudiante.touched)">
+            <div *ngIf="codigoEstudiante.errors.required">
+                  Código de estudiante es requerido.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
             <label for="dniEstudiante">DNI</label>
-            <input type="text" class="form-control" id="dniEstudiante" [(ngModel)]="estudiante.dniEstudiante" name="dniEstudiante">
+            <input type="text" class="form-control" id="dniEstudiante" [(ngModel)]="estudiante.dniEstudiante" name="dniEstudiante" required #dniEstudiante="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="dniEstudiante.invalid && (dniEstudiante.dirty || dniEstudiante.touched)">
+            <div *ngIf="dniEstudiante.errors.required">
+                  DNI de estudiante es requerido.
+            </div>
+          </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
         <div class="form-group">
-            <label for="nomEstudiante">Dirección</label>
-            <input type="text" class="form-control" id="direccionEstudiante" [(ngModel)]="estudiante.direccionEstudiante" name="direccionEstudiante">
+            <label for="direccionEstudiante">Dirección</label>
+            <input type="text" class="form-control" id="direccionEstudiante" [(ngModel)]="estudiante.direccionEstudiante" name="direccionEstudiante" required #direccionEstudiante="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="direccionEstudiante.invalid && (direccionEstudiante.dirty || direccionEstudiante.touched)">
+            <div *ngIf="direccionEstudiante.errors.required">
+                  Dirección de estudiante es requerida.
+            </div>
+          </div>
+
         </div>
 
         <div class="form-group">
             <label for="distrito">Distrito</label>
             <select [compareWith]="compararTipo" type="text" class="form-control" id="distrito"
-              [(ngModel)]="estudiante.distrito" name="distrito">
+              [(ngModel)]="estudiante.distrito" name="distrito" required #distrito="ngModel">
               <option [ngValue]="undefined">
                     --- Seleccione Distrito ----
               </option>
@@ -130,7 +185,7 @@
             </select>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid" >Registrar</button>
         </div>
     </form>
 </div>

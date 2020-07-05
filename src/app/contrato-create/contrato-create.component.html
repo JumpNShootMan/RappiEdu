@@ -63,24 +63,42 @@
     <div class="card-body text-dark">
         <h5 class="card-title">Crear Nuevo Contrato</h5>
     </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for="year">Año</label>
-            <input type="text" class="form-control" id="year" [(ngModel)]="contrato.year" name="year">
+            <input type="text" class="form-control" id="year" [(ngModel)]="contrato.year" name="year" required #year="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="year.invalid && (year.dirty || year.touched)">
+            <div *ngIf="year.errors.required">
+                  Año es requerido.
+            </div>
+          </div>
         </div>
         <div class="form-group">
             <label for="mes">Mes</label>
-            <input type="text" class="form-control" id="mes" [(ngModel)]="contrato.mes" name="mes">
+            <input type="text" class="form-control" id="mes" [(ngModel)]="contrato.mes" name="mes" required #mes="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="mes.invalid && (mes.dirty || mes.touched)">
+            <div *ngIf="mes.errors.required">
+                  Mes es requerido.
+            </div>
+          </div>
         </div>  
         <div class="form-group">
             <label for="dia">Día</label>
-            <input type="text" class="form-control" id="dia" [(ngModel)]="contrato.dia" name="dia">
+            <input type="text" class="form-control" id="dia" [(ngModel)]="contrato.dia" name="dia" required #dia="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="dia.invalid && (dia.dirty || dia.touched)">
+            <div *ngIf="dia.errors.required">
+                  Día es requerido.
+            </div>
+          </div>
         </div>  
 
         <div class="form-group">
           <label for="servicio">Servicio</label>
           <select [compareWith]="compararTipoS" type="text" class="form-control" id="servicio"
-            [(ngModel)]="contrato.servicio" name="servicio">
+            [(ngModel)]="contrato.servicio" name="servicio" required #servicio="ngModel">
             <option [ngValue]="undefined">
                   --- Seleccione Servicio ----
             </option>
@@ -93,7 +111,7 @@
       <div class="form-group">
         <label for="estudiante">Estudiante</label>
         <select [compareWith]="compararTipoE" type="text" class="form-control" id="estudiante"
-          [(ngModel)]="contrato.estudiante" name="estudiante">
+          [(ngModel)]="contrato.estudiante" name="estudiante" required #estudiante="ngModel">
           <option [ngValue]="undefined">
                 --- Seleccione Estudiante ----
           </option>
@@ -104,7 +122,7 @@
     </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid" >Registrar</button>
         </div>
     </form>
 </div>

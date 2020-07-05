@@ -63,32 +63,72 @@
     <div class="card-body text-dark">
         <h5 class="card-title">Agregar Nuevo Profesor</h5>
     </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for="nomProfesor">Nombre</label>
-            <input type="text" class="form-control" id="nomProfesor" [(ngModel)]="profesor.nomProfesor" name="nomProfesor">
+            <input type="text" class="form-control" id="nomProfesor" [(ngModel)]="profesor.nomProfesor" name="nomProfesor" required #nomProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="nomProfesor.invalid && (nomProfesor.dirty || nomProfesor.touched)">
+            <div *ngIf="nomProfesor.errors.required">
+                  Nombre de profesor es requerido.
+            </div>
+          </div>
+
         </div>
         <div class="form-group">
             <label for="apellidoProfesor">Apellido</label>
-            <input type="text" class="form-control" id="apellidoProfesor" [(ngModel)]="profesor.apellidoProfesor" name="descripcionEspecialidad">
+            <input type="text" class="form-control" id="apellidoProfesor" [(ngModel)]="profesor.apellidoProfesor" name="apellidoProfesor" required #apellidoProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="apellidoProfesor.invalid && (apellidoProfesor.dirty || apellidoProfesor.touched)">
+            <div *ngIf="apellidoProfesor.errors.required">
+                  Apellido de profesor es requerido.
+            </div>
+          </div>
+        
         </div>  
         <div class="form-group">
             <label for="dniProfesor">DNI</label>
-            <input type="text" class="form-control" id="dniProfesor" [(ngModel)]="profesor.dniProfesor" name="dniProfesor">
+            <input type="text" class="form-control" id="dniProfesor" [(ngModel)]="profesor.dniProfesor" name="dniProfesor" required #dniProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="dniProfesor.invalid && (dniProfesor.dirty || dniProfesor.touched)">
+            <div *ngIf="dniProfesor.errors.required">
+                  DNI de profesor es requerido.
+            </div>
+          </div>
+
         </div>  
         <div class="form-group">
             <label for="claveProfesor">Contraseña</label>
-            <input type="text" class="form-control" id="claveProfesor" [(ngModel)]="profesor.claveProfesor" name="claveProfesor">
+            <input type="text" class="form-control" id="claveProfesor" [(ngModel)]="profesor.claveProfesor" name="claveProfesor" required #claveProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="claveProfesor.invalid && (claveProfesor.dirty || claveProfesor.touched)">
+            <div *ngIf="claveProfesor.errors.required">
+                  Clave de profesor es requerido.
+            </div>
+          </div>
+
         </div>  
         <div class="form-group">
             <label for="celularProfesor">Nro. Celular</label>
-            <input type="text" class="form-control" id="celularProfesor" [(ngModel)]="profesor.celularProfesor" name="celularProfesor">
+            <input type="text" class="form-control" id="celularProfesor" [(ngModel)]="profesor.celularProfesor" name="celularProfesor" required #celularProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="celularProfesor.invalid && (celularProfesor.dirty || celularProfesor.touched)">
+            <div *ngIf="celularProfesor.errors.required">
+                  Celular de profesor es requerido.
+            </div>
+          </div>
+        
         </div>  
     
         <div class="form-group">
             <label for="especialidad">Especialidad</label>
             <select [compareWith]="compararTipo" type="text" class="form-control" id="especialidad"
-              [(ngModel)]="profesor.especialidad" name="especialidad">
+              [(ngModel)]="profesor.especialidad" name="especialidad" required #especialidad="ngModel">
               <option [ngValue]="undefined">
                     --- Seleccione Tipo ----
               </option>
@@ -99,10 +139,18 @@
         </div>
         <div class="form-group">
             <label for="generoProfesor">Género</label>
-            <input type="text" class="form-control" id="generoProfesor" [(ngModel)]="profesor.generoProfesor" name="generoProfesor">
+            <input type="text" class="form-control" id="generoProfesor" [(ngModel)]="profesor.generoProfesor" name="generoProfesor" required #generoProfesor="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="generoProfesor.invalid && (generoProfesor.dirty || generoProfesor.touched)">
+            <div *ngIf="generoProfesor.errors.required">
+                  Género de profesor es requerido.
+            </div>
+          </div>
+        
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid">Registrar</button>
         </div>
     </form>
 </div>
