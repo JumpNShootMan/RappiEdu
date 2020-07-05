@@ -4,6 +4,7 @@ import { RappieduService } from '../rappiedu.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Distrito } from '../model/distrito';
 
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-estudiante-create',
@@ -46,8 +47,8 @@ export class EstudianteCreateComponent implements OnInit {
     console.log(this.estudiante);
 
     this.rappieduService.createEstudiante(this.estudiante).subscribe(
-      data => this.router.navigate(['RappiEDU/Estudiante/estu-list']) //luego ir a list para ver si se ha creado el producto
-    )
+      data => this.router.navigate(['RappiEDU/Estudiante/estu-list']));
+    swal.fire('REGISTRADO', `El estudiante ${this.estudiante.nomEstudiante}, ha sido creado con éxito!`, 'success');
     
   }
   
