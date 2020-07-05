@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Servicio } from '../model/servicio';
 import { Estudiante } from '../model/estudiante';
 
+import swal from 'sweetalert2';
+
 @Component({
   selector: 'app-contrato-create',
   templateUrl: './contrato-create.component.html',
@@ -38,11 +40,8 @@ export class ContratoCreateComponent implements OnInit {
   save(){
     console.log(this.contrato);
     this.rappieduService.createContrato(this.contrato).subscribe(
-      data => this.router.navigate(['RappiEDU/Estudiante/con-list']) 
-      //con navigate... 
-      //luego ir a list para ver si se ha creado
-      //el profesor
-    )
+      data => this.router.navigate(['RappiEDU/Estudiante/con-list']));
+    swal.fire('REGISTRADO', `El contrato ${this.contrato.idContrato}, ha sido creado con éxito!`, 'success');
   }
 
   compararTipoS(o1:Servicio, o2:Servicio) : boolean{
