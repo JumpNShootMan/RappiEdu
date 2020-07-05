@@ -4,6 +4,8 @@ import { Profesor } from '../model/profesor';
 import { RappieduService } from '../rappiedu.service';
 import { Router } from '@angular/router';
 
+import swal from 'sweetalert2';
+
 @Component({
   selector: 'app-servicio-create',
   templateUrl: './servicio-create.component.html',
@@ -29,11 +31,8 @@ export class ServicioCreateComponent implements OnInit {
   save(){
     console.log(this.servicio);
     this.rappieduService.createServicio(this.servicio).subscribe(
-      data => this.router.navigate(['RappiEDU/Profesor/ser-list']) 
-      //con navigate... 
-      //luego ir a list para ver si se ha creado
-      //el profesor
-    )
+      data => this.router.navigate(['RappiEDU/Profesor/ser-list']));
+    swal.fire('REGISTRADO', `El contrato ${this.servicio.nomServicio}, ha sido creado con éxito!`, 'success');
   }
 
   compararTipoP(o1:Profesor, o2:Profesor) : boolean{
