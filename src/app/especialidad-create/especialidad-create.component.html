@@ -63,19 +63,32 @@
     <div class="card-body text-dark">
         <h5 class="card-title">Agregar Nueva Especialidad</h5>
     </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for="nomEspecialidad">Especialidad</label>
-            <input type="text" class="form-control" id="nomEspecialidad" [(ngModel)]="especialidad.nomEspecialidad" name="nomEspecialidad">
+            <input type="text" class="form-control" id="nomEspecialidad" [(ngModel)]="especialidad.nomEspecialidad" name="nomEspecialidad" required #nomEspecialidad="ngModel">
+            
+            <div class="alert alert-danger"
+            *ngIf="nomEspecialidad.invalid && (nomEspecialidad.dirty || nomEspecialidad.touched)">
+            <div *ngIf="nomEspecialidad.errors.required">
+                  Nombre de especialidad es requerido.
+            </div>
+
         </div>
-    </form>
-    <form (ngSubmit) = "save()">
+      </div>
+
         <div class="form-group">
             <label for="descripcionEspecialidad">Descripcion</label>
-            <input type="text" class="form-control" id="descripcionEspecialidad" [(ngModel)]="especialidad.descripcionEspecialidad" name="descripcionEspecialidad">
+            <input type="text" class="form-control" id="descripcionEspecialidad" [(ngModel)]="especialidad.descripcionEspecialidad" name="descripcionEspecialidad" required #descripcionEspecialidad="ngModel">
+            <div class="alert alert-danger"
+            *ngIf="descripcionEspecialidad.invalid && (descripcionEspecialidad.dirty || descripcionEspecialidad.touched)">
+            <div *ngIf="descripcionEspecialidad.errors.required">
+                  Descripción es requerida.
+            </div>
+          </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid" >Registrar</button>
         </div>
 
     </form>

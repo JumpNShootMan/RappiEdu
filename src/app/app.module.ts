@@ -23,7 +23,8 @@ import { DistritoListComponent } from './distrito-list/distrito-list.component';
 import { DistritoCreateComponent } from './distrito-create/distrito-create.component';
 import { ContratoCreateComponent } from './contrato-create/contrato-create.component';
 import { ContratoListComponent } from './contrato-list/contrato-list.component';
-
+import { ConfirmarComponent } from './confirmar/confirmar.component';
+import { ReactiveFormsModule } from "@angular/forms";
 // Log In:
 import { LoginComponent } from './usuarios/login.component';
 import { AuthGuard } from './usuarios/guards/auth.guard';
@@ -50,13 +51,15 @@ import { RoleGuard } from './usuarios/guards/role.guard';
     ServicioListComponent,
     ContratoCreateComponent,
     ContratoListComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

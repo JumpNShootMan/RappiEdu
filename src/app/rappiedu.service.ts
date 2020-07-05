@@ -120,6 +120,12 @@ export class RappieduService {
         map(response => response as Contrato[])
       );
     }
+
+    // Confirmar:
+    confirmarContrato(contrato: Object): Observable<Object>{ //para crear en create-product
+      return this.http.post(this.urlBase+'/confirmar',contrato, {headers:this.httpHeaders}); //enviando el producto al REST de STS
+    }
+
   
 
 }

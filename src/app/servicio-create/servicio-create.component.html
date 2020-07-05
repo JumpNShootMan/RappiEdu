@@ -63,31 +63,71 @@
     <div class="card-body text-dark">
         <h5 class="card-title">Crear Nuevo Servicio</h5>
     </div>
-    <form (ngSubmit) = "save()">
+    <form (ngSubmit) = "save()" #clienteForm = "ngForm">
         <div class="form-group">
             <label for="nomServicio">Nombre</label>
-            <input type="text" class="form-control" id="nomServicio" [(ngModel)]="servicio.nomServicio" name="nomServicio">
+            <input type="text" class="form-control" id="nomServicio" [(ngModel)]="servicio.nomServicio" name="nomServicio" required #nomServicio="ngModel">
+
+            <div class="alert alert-danger"
+            *ngIf="nomServicio.invalid && (nomServicio.dirty || nomServicio.touched)">
+            <div *ngIf="nomServicio.errors.required">
+                  Nombre de servicio es requerido.
+            </div>
+          </div>
+
         </div>
         <div class="form-group">
             <label for="descripcionServicio">Descripción</label>
-            <input type="text" class="form-control" id="descripcionServicio" [(ngModel)]="servicio.descripcionServicio" name="descripcionServicio">
+            <input type="text" class="form-control" id="descripcionServicio" [(ngModel)]="servicio.descripcionServicio" name="descripcionServicio" required #descripcionServicio="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="descripcionServicio.invalid && (descripcionServicio.dirty || descripcionServicio.touched)">
+            <div *ngIf="descripcionServicio.errors.required">
+                  Descripción es requerida.
+            </div>
+          </div>
+
         </div>  
         <div class="form-group">
             <label for="costoServicio">Costo</label>
-            <input type="text" class="form-control" id="costoServicio" [(ngModel)]="servicio.costoServicio" name="costoServicio">
+            <input type="text" class="form-control" id="costoServicio" [(ngModel)]="servicio.costoServicio" name="costoServicio" required #costoServicio="ngModel">
+        
+            <div class="alert alert-danger"
+            *ngIf="costoServicio.invalid && (costoServicio.dirty || costoServicio.touched)">
+            <div *ngIf="costoServicio.errors.required">
+                  Costo de servicio es requerido.
+            </div>
+          </div>
+        
         </div>  
         <div class="form-group">
             <label for="dia">Día</label>
-            <input type="text" class="form-control" id="dia" [(ngModel)]="servicio.dia" name="dia">
+            <input type="text" class="form-control" id="dia" [(ngModel)]="servicio.dia" name="dia" required #dia="ngModel">
+
+            <div class="alert alert-danger"
+            *ngIf="dia.invalid && (dia.dirty || dia.touched)">
+            <div *ngIf="dia.errors.required">
+                  Día de servicio es requerido.
+            </div>
+          </div>
+
         </div>  
         <div class="form-group">
             <label for="hora">Hora</label>
-            <input type="text" class="form-control" id="hora" [(ngModel)]="servicio.hora" name="hora">
+            <input type="text" class="form-control" id="hora" [(ngModel)]="servicio.hora" name="hora" required #hora="ngModel">
+
+            <div class="alert alert-danger"
+            *ngIf="hora.invalid && (hora.dirty || hora.touched)">
+            <div *ngIf="hora.errors.required">
+                  Hora de servicio es requerido.
+            </div>
+          </div>
+
         </div>  
         <div class="form-group">
             <label for="profesor">Profesor</label>
             <select [compareWith]="compararTipoP" type="text" class="form-control" id="profesor"
-              [(ngModel)]="servicio.profesor" name="profesor">
+              [(ngModel)]="servicio.profesor" name="profesor" required #profesor="ngModel">
               <option [ngValue]="undefined">
                     --- Seleccione Profesor ----
               </option>
@@ -98,7 +138,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled] = "!clienteForm.form.valid" >Registrar</button>
         </div>
     </form>
 </div>

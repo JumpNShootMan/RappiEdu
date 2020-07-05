@@ -86,7 +86,7 @@ save() {
     .subscribe(
       Especialidad => {
         this.router.navigate(['RappiEDU/Profesor/esp-list']);
-        swal.fire('Nuevo cliente', `El cliente ${this.especialidad.nomEspecialidad} ha sido creado con éxito`, 'success');
+        swal.fire('Nueva especialidad', `La especialidad ${this.especialidad.nomEspecialidad} ha sido creado con éxito`, 'success');
       }
     );
 }
